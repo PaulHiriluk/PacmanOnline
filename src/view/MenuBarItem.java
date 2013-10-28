@@ -1,28 +1,3 @@
-<<<<<<< HEAD:src/model/MenuBarItem.java
-package model;
-
-public enum MenuBarItem {
-	START("Старт"),
-	PAUSE("Пауза"),
-	MAIN_MENU("Главное меню"),
-	ABOUT("О программе"),
-	EXIT("Выход");
-	
-	MenuBarItem(String paramName){
-		this.setParamName(paramName);
-	}
-	
-	public String getParamName() {
-		return paramName;
-	}
-
-	public void setParamName(String paramName) {
-		this.paramName = paramName;
-	}
-
-	private String paramName;
-}
-=======
 package view;
 
 public enum MenuBarItem {
@@ -43,7 +18,5 @@ public enum MenuBarItem {
 	public void setParamName(String paramName) {
 		this.paramName = paramName;
 	}
-
 	private String paramName;
 }
->>>>>>> pacman/master2:src/view/MenuBarItem.java
