@@ -1,4 +1,4 @@
-package model;
+package start;
 
 public enum MenuBarItem {
 	START,

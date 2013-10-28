@@ -1,4 +1,4 @@
-package model;
+package start;
 
 public class Pacman extends Unit{
 	private int gold_count;

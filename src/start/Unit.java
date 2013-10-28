@@ -1,4 +1,4 @@
-package model;
+package start;
 
 import java.awt.Point;
 

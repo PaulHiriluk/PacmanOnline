@@ -1,4 +1,4 @@
-package model;
+package start;
 
 public class Map {
 	private int[][] map;
