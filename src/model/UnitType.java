@@ -1,4 +1,4 @@
-package start;
+package model;
 
 public enum UnitType {
 	GHOST
