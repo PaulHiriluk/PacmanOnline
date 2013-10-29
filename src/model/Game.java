@@ -21,7 +21,11 @@ public class Game implements Runnable {
 				UnitType.PACMAN);
 
 		while (pacman.isLife()) {
-
+			if (pacman.isHungry()) {
+				for (Unit ghost : ghosts) {
+					ghost.setHungry(false);
+				}
+			}
 			try {
 				Thread.sleep(100);
 			} catch (final InterruptedException e) {
