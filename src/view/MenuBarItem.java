@@ -1,23 +1,35 @@
 package view;
 
+import javax.swing.ImageIcon;
+
 public enum MenuBarItem {
-	START("Старт"), PAUSE("Пауза"), MAIN_MENU("Главное меню"), ABOUT("О программе"), EXIT(
-			"Выход");
+	START("Старт", new ImageIcon("")), 
+	PAUSE("Пауза", new ImageIcon("")), 
+	MAIN_MENU("Главное меню", new ImageIcon("")), 
+	ABOUT("О программе", new ImageIcon("")), 
+	EXIT("Выход", new ImageIcon(""));
 
-	private String	paramName;
+	private String		name;
+	private ImageIcon 	icon;
 
-	MenuBarItem(final String paramName) {
-
-		setParamName(paramName);
+	MenuBarItem(final String name, final ImageIcon icon) {
+		setName(name);
+		setIcon(icon);
 	}
 
-	public String getParamName() {
-
-		return paramName;
+	public String getName() {
+		return name;
 	}
 
-	public void setParamName(final String paramName) {
+	public void setName(String name) {
+		this.name = name;
+	}
 
-		this.paramName = paramName;
+	public ImageIcon getIcon() {
+		return icon;
+	}
+
+	public void setIcon(ImageIcon icon) {
+		this.icon = icon;
 	}
 }
