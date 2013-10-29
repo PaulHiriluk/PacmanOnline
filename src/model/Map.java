@@ -73,4 +73,12 @@ public class Map {
 	public void move(final Unit unit, final Unit enemy) {
 
 	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public int getWidth() {
+		return width;
+	}
 }
