@@ -13,18 +13,21 @@ public class MainWindow extends JFrame{
 
 	private static final long serialVersionUID = 3172688540921699213L;
 	private static final String build = "alpha 0.0000001 :)"; 
+	
+	private JMenuBar northMenuBar;
 
 	public MainWindow() {
 		initDefaultSettings();
 		initMenuBar();
+		showGameBars(false);
 	}
 
 	private void initDefaultSettings() {
 		int width = Toolkit.getDefaultToolkit().getScreenSize().width / 2;
 		int height = Toolkit.getDefaultToolkit().getScreenSize().height;
-		//setIconImage((this.getToolkit().getImage("images/server.png")));
+		//setIconImage(getToolkit().getImage("images/gameIcon.png"));
 		setLayout(new BorderLayout());
-		setTitle("Pacman - Online" + build);
+		setTitle("Pacman - Online " + build);
 		setPreferredSize(new Dimension(width / 2, height / 2));
 		setSize(width / 2 + 200, height / 2);
 		setLocation(width / 2, height / 4);
@@ -32,10 +35,14 @@ public class MainWindow extends JFrame{
 	}
 	
 	private void initMenuBar() {
-		JMenuBar northMenuBar = new JMenuBar();
+		northMenuBar = new JMenuBar();
 		for(MenuTabItem tabItem: MenuTabItem.values()){
 			northMenuBar.add(MenuModel.createMenu(tabItem, this));
 		}	
 		setJMenuBar(northMenuBar);
+	}
+
+	public void showGameBars(Boolean showGameBars) {
+		this.northMenuBar.setVisible(showGameBars);
 	}
 }
