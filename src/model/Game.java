@@ -3,19 +3,31 @@ package model;
 import java.awt.Point;
 import java.util.List;
 
-public class Game implements Runnable{
-	private Map map;
-	private List<Unit> ghosts;
-	private Pacman pacman;
-	public int MAX_GOLD;
-	
+public class Game implements Runnable {
+	private static final int	DEFAULT_PACMAN_Y	= 0;
+	private static final int	DEFAULT_PACMAN_X	= 0;
+	private static final int	DEFAULT_MAP_HEIGHT	= 100;
+	private static final int	DEFAULT_MAP_WIDTH	= 100;
+	private Map					map;
+	private List<Unit>			ghosts;
+	private Pacman				pacman;
+	public int					MAX_GOLD;
+
 	@Override
 	public void run() {
-		pacman = new Pacman(new Point(0, 0), UnitType.PACMAN);
-		while(pacman.isLife()){
-			
+
+		final Map map = new Map(Game.DEFAULT_MAP_WIDTH, Game.DEFAULT_MAP_HEIGHT);
+		pacman = new Pacman(map, new Point(Game.DEFAULT_PACMAN_X, Game.DEFAULT_PACMAN_Y),
+				UnitType.PACMAN);
+
+		while (pacman.isLife()) {
+
+			try {
+				Thread.sleep(100);
+			} catch (final InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
-	
-	
+
 }
