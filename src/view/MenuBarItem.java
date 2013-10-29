@@ -31,5 +31,6 @@ public enum MenuBarItem {
 
 	public void setIcon(ImageIcon icon) {
 		this.icon = icon;
+
 	}
 }
