@@ -8,9 +8,9 @@ public class Unit {
 	private boolean			hungry;
 	private Direction		direction;
 	private final boolean	life;
-	private final Map		map;
+	private final MapModel		map;
 
-	public Unit(final Map map, final Point coordinates, final UnitType type) {
+	public Unit(final MapModel map, final Point coordinates, final UnitType type) {
 
 		this.coordinates = coordinates;
 		this.type = type;

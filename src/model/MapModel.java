@@ -2,13 +2,13 @@ package model;
 
 import java.awt.Point;
 
-public class Map {
+public class MapModel {
 	private static final int CELL_WALL = 0;
 	private final int[][]	map;
 	private final int		width;
 	private final int		height;
 
-	public Map(final int width, final int height) {
+	public MapModel(final int width, final int height) {
 
 		this.width = width;
 		this.height = height;
