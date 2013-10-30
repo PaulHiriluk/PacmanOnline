@@ -19,7 +19,7 @@ public class Pacman extends Unit {
 		return apple_count;
 	}
 	
-	public void addApple() {
+	public void eatApple() {
 		
 		apple_count++;
 	}

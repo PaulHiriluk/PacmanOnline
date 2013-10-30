@@ -23,12 +23,18 @@ public class Map {
 		if (!isWall(aimCoordinates)) {
 			pacman.setCoordinate(aimCoordinates);
 			if (isAppleCell(aimCoordinates)) {
-				pacman.addApple();
+				pacman.eatApple();
 			} else
 			if (isCherryCell(aimCoordinates)) {
 				pacman.setHungry(true);
 			}
+			clearCurrentCell(aimCoordinates);
 		}
+	}
+
+	private void clearCurrentCell(Point aimCoordinates) {
+
+		map[aimCoordinates.x][aimCoordinates.y] = 1;
 	}
 	
 	private boolean isAppleCell(Point aimCoordinates) {
