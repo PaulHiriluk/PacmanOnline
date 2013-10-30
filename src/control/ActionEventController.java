@@ -9,7 +9,7 @@ public class ActionEventController {
 	public static ActionListener getAction(MenuBarItem item, MainWindow frame){
 		switch(item){	
 			case START: return
-							new ExitEvent();
+							new StartEvent();
 			case PAUSE: return
 					new ExitEvent();
 			case EXIT: return

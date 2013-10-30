@@ -19,7 +19,7 @@ public class MainWindow extends JFrame{
 	public MainWindow() {
 		initDefaultSettings();
 		initMenuBar();
-		showGameBars(false);
+		showGameBars(true);
 	}
 
 	private void initDefaultSettings() {
