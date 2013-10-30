@@ -53,7 +53,7 @@ public class Unit {
 		return life;
 	}
 
-	public void move(final Unit goal) {
+	public void move(final Pacman goal) {
 
 		map.move(this, goal);
 	}
