@@ -15,11 +15,19 @@ public class MainWindow extends JFrame{
 	private static final String build = "alpha 0.0000001 :)"; 
 	
 	private JMenuBar northMenuBar;
+	private ScoreBar southScoreBar;
+	private Map map;
 
 	public MainWindow() {
 		initDefaultSettings();
 		initMenuBar();
-		showGameBars(false);
+		initMap();
+		showGameBars(true);
+	}
+
+	private void initMap() {
+		map = new Map();
+		add(map, BorderLayout.CENTER);
 	}
 
 	private void initDefaultSettings() {
@@ -40,9 +48,13 @@ public class MainWindow extends JFrame{
 			northMenuBar.add(MenuModel.createMenu(tabItem, this));
 		}	
 		setJMenuBar(northMenuBar);
+		
+		southScoreBar = new ScoreBar();
+		add(southScoreBar, BorderLayout.SOUTH);
 	}
 
 	public void showGameBars(Boolean showGameBars) {
 		this.northMenuBar.setVisible(showGameBars);
+		this.southScoreBar.setVisible(showGameBars);
 	}
 }
