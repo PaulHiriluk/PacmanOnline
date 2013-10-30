@@ -24,6 +24,14 @@ public class Unit {
 
 		return coordinates;
 	}
+	
+	public int getX() {
+		return coordinates.x;
+	}
+	
+	public int getY() {
+		return coordinates.y;
+	}
 
 	public Direction getDirection() {
 
