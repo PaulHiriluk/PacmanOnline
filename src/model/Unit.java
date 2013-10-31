@@ -24,6 +24,14 @@ public class Unit {
 
 		return coordinates;
 	}
+	
+	public int getX() {
+		return coordinates.x;
+	}
+	
+	public int getY() {
+		return coordinates.y;
+	}
 
 	public Direction getDirection() {
 
@@ -45,7 +53,7 @@ public class Unit {
 		return life;
 	}
 
-	public void move(final Unit goal) {
+	public void move(final Pacman goal) {
 
 		map.move(this, goal);
 	}
