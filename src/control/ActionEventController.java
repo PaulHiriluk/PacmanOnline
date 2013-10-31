@@ -6,18 +6,18 @@ import view.MainWindow;
 import view.MenuBarItem;
 
 public class ActionEventController {
-	public static ActionListener getAction(MenuBarItem item, MainWindow frame){
+	public static ActionListener getAction(MenuBarItem item, MainWindow window){
 		switch(item){	
 			case START: return
-							new StartEvent();
+							new StartEvent(window);
 			case PAUSE: return
-					new ExitEvent();
+					new PauseEvent();
 			case EXIT: return
 					new ExitEvent();
 			case MAIN_MENU: return
 					new ExitEvent();
 			case ABOUT: return
-					new ExitEvent();
+					new AboutEvent();
 			default: 
 				throw new IllegalArgumentException();
 		}

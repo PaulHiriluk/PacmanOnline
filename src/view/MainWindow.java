@@ -7,6 +7,8 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 
+import control.Controller;
+
 import model.MenuModel;
 
 public class MainWindow extends JFrame{
@@ -14,6 +16,7 @@ public class MainWindow extends JFrame{
 	private static final long serialVersionUID = 3172688540921699213L;
 	private static final String build = "alpha 0.0000001 :)"; 
 	
+	private Controller controller;
 	private JMenuBar northMenuBar;
 	private ScoreBar southScoreBar;
 	private Map map;
@@ -56,5 +59,17 @@ public class MainWindow extends JFrame{
 	public void showGameBars(Boolean showGameBars) {
 		this.northMenuBar.setVisible(showGameBars);
 		this.southScoreBar.setVisible(showGameBars);
+	}
+
+	public void setController(Controller controller) {
+		this.controller = controller;
+	}
+	
+	public Controller getController() {
+		return this.controller;
+	}
+	
+	public void paintMap(int[][] map) {
+		this.map.paintMap(map);
 	}
 }
