@@ -9,6 +9,7 @@ public class Unit {
 	private Direction		direction;
 	private final boolean	life;
 	private final MapModel		map;
+	private Cell prevStep;
 
 	public Unit(final MapModel map, final Point coordinates, final UnitType type) {
 
@@ -19,9 +20,13 @@ public class Unit {
 		direction = Direction.SOUTH;
 		life = true;
 	}
+	
+	public Cell getPrevStep() {
+		return prevStep;
+	}
+	
 
 	public Point getCoordinate() {
-
 		return coordinates;
 	}
 	
@@ -54,7 +59,7 @@ public class Unit {
 	}
 
 	public void move(final Pacman goal) {
-
+		prevStep = map.getCell(coordinates);
 		map.move(this, goal);
 	}
 
