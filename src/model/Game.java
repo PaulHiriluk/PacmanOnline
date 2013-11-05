@@ -21,6 +21,7 @@ public class Game implements Runnable {
 	@Override
 	public void run() {
 
+<<<<<<< HEAD
 		final MapModel mapModel = new MapModel();
 		pacman = new Pacman(mapModel, new Point(Game.DEFAULT_PACMAN_X, Game.DEFAULT_PACMAN_Y),
 				UnitType.PACMAN);
@@ -32,6 +33,19 @@ public class Game implements Runnable {
 				}
 			}
 			controller.paintMap(mapModel.getMap(), mapModel.getWidth(), mapModel.getHeight());
+=======
+		final MapModel mapModel = new MapModel(Game.DEFAULT_MAP_WIDTH, Game.DEFAULT_MAP_HEIGHT);
+		pacman = new Pacman(mapModel, new Point(Game.DEFAULT_PACMAN_X, Game.DEFAULT_PACMAN_Y),
+				UnitType.PACMAN);
+
+		while (pacman.isLife()) {
+			if (pacman.isHungry()) {
+				for (Unit ghost : ghosts) {
+					ghost.setHungry(false);
+				}
+			}
+			controller.paintMap(mapModel.getMap());
+>>>>>>> refs/heads/dev
 			try {
 				Thread.sleep(100);
 			} catch (final InterruptedException e) {

@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import javax.swing.JPanel;
 
+<<<<<<< HEAD
 import model.Cell;
 import model.CellType;
 
@@ -31,5 +32,29 @@ public class Map extends JPanel{
 			}
 		}
 		
+=======
+public class Map extends JPanel{
+	private static final long serialVersionUID = 3885570269374432604L;
+	private boolean isGreen;
+
+	public Map() {
+		setBackground(Color.BLACK);
+	}
+
+	public void paintMap(int[][] map) {
+		if (!isGreen) {
+			setBackground(Color.GREEN);
+			isGreen = true;
+		}
+		else {
+			setBackground(Color.RED);
+			isGreen = false;
+		}
+		for(int x = 0; x < map.length; x++){
+			for(int y = 0; y < map.length; y++){
+				
+			}
+		}
+>>>>>>> refs/heads/dev
 	}
 }
