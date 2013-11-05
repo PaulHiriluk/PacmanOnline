@@ -62,33 +62,6 @@ public class MapModel {
 		return height;
 	}
 
-	public int getHeuristicCostEstimate(final Point start, final Point end) {
-		return Math.abs(start.x - end.x) + Math.abs(start.y - end.y);
-	}
-
-	public Cell getMinFCell(final List<Cell> list) {
-		if (list.size() != 0) {
-			Cell min = list.get(0);
-			for (final Cell cell : list) {
-				if (min.getF() > cell.getF()) {
-					min = cell;
-				}
-			}
-			return min;
-		} else {
-			return null;
-		}
-	}
-
-	private Point getNextStepPoint(final Cell end) {
-		Cell cell = end;
-		while (cell.getG() != 1 && cell.getCame_from() != null) {
-			cell = cell.getCame_from();
-		}
-
-		return cell.getCoordinates();
-	}
-
 	public int getWidth() {
 		return width;
 	}
@@ -118,53 +91,7 @@ public class MapModel {
 	}
 
 	public void move(final Unit unit, final Pacman enemy) {
-		// TODO: if pacman hungry then run
-		final Point startCoord = unit.getCoordinate();
-		final Point endCoord = enemy.getCoordinate();
-		final List<Cell> opened_cells = new ArrayList<Cell>();
-		final List<Cell> closed_cells = new ArrayList<Cell>();
-		opened_cells.add(new Cell(startCoord, 0, getHeuristicCostEstimate(startCoord,
-				endCoord), null));
-		while (opened_cells.size() != 0) {
-			final Cell currentCell = getMinFCell(opened_cells);
-			if (currentCell.equals(endCoord)) {
-				final Point stepPoint = getNextStepPoint(currentCell);
-				unit.setCoordinate(stepPoint);
-				return;
-			}
-			opened_cells.remove(currentCell);
-			closed_cells.add(currentCell);
-			final Point northCell = new Point(currentCell.getX(), currentCell.getY() - 1);
-			processCell(endCoord, opened_cells, closed_cells, currentCell, northCell);
-			final Point southCell = new Point(currentCell.getX(), currentCell.getY() + 1);
-			processCell(endCoord, opened_cells, closed_cells, currentCell, southCell);
-			final Point eastCell = new Point(currentCell.getX(), currentCell.getY() - 1);
-			processCell(endCoord, opened_cells, closed_cells, currentCell, eastCell);
-			final Point westCell = new Point(currentCell.getX(), currentCell.getY() + 1);
-			processCell(endCoord, opened_cells, closed_cells, currentCell, westCell);
-		}
-		// TODO: if path not found then random step;
-	}
 
-	private void processCell(final Point endCoord, final List<Cell> opened_cells,
-			final List<Cell> closed_cells, final Cell currentCell, final Point northCell) {
-		Cell tmp_cell;
-		if (!isWall(northCell)) {
-			if (isInList(closed_cells, northCell) == null) {
-				final int g = currentCell.getG() + 1;
-
-				if ((tmp_cell = isInList(opened_cells, northCell)) != null) {
-					if (tmp_cell.getG() > g) {
-						tmp_cell.setG(g);
-						tmp_cell.setCame_from(currentCell);
-					}
-				} else {
-					tmp_cell = new Cell(northCell, g, getHeuristicCostEstimate(northCell,
-							endCoord), currentCell);
-					opened_cells.add(tmp_cell);
-				}
-			}
-		}
 	}
 
 	public int[][] getMap() {
