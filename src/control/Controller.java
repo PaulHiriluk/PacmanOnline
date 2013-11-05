@@ -1,6 +1,7 @@
 package control;
 
 import view.MainWindow;
+import model.Cell;
 import model.Game;
 
 public class Controller {
@@ -13,7 +14,7 @@ public class Controller {
 		this.window = window;
 	}
 
-	public void paintMap(int[][] map){
+	public void paintMap(Cell[][] map){
 		this.window.paintMap(map);
 	}
 }

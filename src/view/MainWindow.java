@@ -9,6 +9,7 @@ import javax.swing.JMenuBar;
 
 import control.Controller;
 
+import model.Cell;
 import model.MenuModel;
 
 public class MainWindow extends JFrame{
@@ -69,7 +70,7 @@ public class MainWindow extends JFrame{
 		return this.controller;
 	}
 	
-	public void paintMap(int[][] map) {
+	public void paintMap(Cell[][] map) {
 		this.map.paintMap(map);
 	}
 }

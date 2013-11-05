@@ -21,7 +21,7 @@ public class Game implements Runnable {
 	@Override
 	public void run() {
 
-		final MapModel mapModel = new MapModel(Game.DEFAULT_MAP_WIDTH, Game.DEFAULT_MAP_HEIGHT);
+		final MapModel mapModel = new MapModel();
 		pacman = new Pacman(mapModel, new Point(Game.DEFAULT_PACMAN_X, Game.DEFAULT_PACMAN_Y),
 				UnitType.PACMAN);
 
