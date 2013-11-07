@@ -14,7 +14,6 @@ public class Map extends JPanel{
 	private static final long serialVersionUID = 3885570269374432604L;
 
 	private BufferedImage map;
-	private BufferedImage cellImage; //для вставки новой клетки на место другой
 	public final static int CELL_SIZE = 16;
 	public final static int MAP_PIXEL_WIDTH = 464;
 	public final static int MAP_PIXEL_HEIGHT = 576;
@@ -75,7 +74,7 @@ public class Map extends JPanel{
 			        repaint();
 			        break;
 				}
-				default: JOptionPane.showMessageDialog(null, "Ошибка при парсинге карты");
+				default: JOptionPane.showMessageDialog(null, "Ошибка рендеринга, не известный тип текстуры");
 					break;
 				}
 			}
@@ -88,13 +87,5 @@ public class Map extends JPanel{
 
 	public void setMap(BufferedImage map) {
 		this.map = map;
-	}
-
-	public BufferedImage getCellImage() {
-		return cellImage;
-	}
-
-	public void setCellImage(BufferedImage cellImage) {
-		this.cellImage = cellImage;
 	}
 }

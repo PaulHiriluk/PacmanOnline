@@ -80,6 +80,5 @@ public class MainWindow extends JFrame{
 	public void paintMap(Cell[][] map, int width, int height) {
 		this.map.paintMap(map, width, height);
 		this.repaint();
-		//this.revalidate();
 	}
 }
