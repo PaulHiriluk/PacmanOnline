@@ -31,7 +31,7 @@ public class Game implements Runnable {
 					ghost.setHungry(false);
 				}
 			}
-			controller.paintMap(mapModel.getMap());
+			controller.paintMap(mapModel.getMap(), mapModel.getWidth(), mapModel.getHeight());
 			try {
 				Thread.sleep(100);
 			} catch (final InterruptedException e) {

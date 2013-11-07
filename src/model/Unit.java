@@ -3,7 +3,9 @@ package model;
 import java.awt.Point;
 
 public class Unit {
+	private static final int CELL_SIZE = 16;
 	private Point			coordinates;
+	private Point			graphicalCoordinates;
 	private UnitType		type;
 	private boolean			hungry;
 	private Direction		direction;
@@ -28,6 +30,16 @@ public class Unit {
 
 	public Point getCoordinate() {
 		return coordinates;
+	}
+	
+	public Point getGraphicalCoordinates() {
+		return graphicalCoordinates;
+	}
+	
+	public void setGraphicalCoordinates(Point graphicalCoordinates) {
+		this.graphicalCoordinates = graphicalCoordinates;
+		coordinates.x = graphicalCoordinates.x / CELL_SIZE;
+		coordinates.y = graphicalCoordinates.y / CELL_SIZE;
 	}
 	
 	public int getX() {

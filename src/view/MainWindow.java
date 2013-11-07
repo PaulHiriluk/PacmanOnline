@@ -34,15 +34,22 @@ public class MainWindow extends JFrame{
 		add(map, BorderLayout.CENTER);
 	}
 
+	public Map getMap() {
+		return map;
+	}
+
+	public void setMap(Map map) {
+		this.map = map;
+	}
+
 	private void initDefaultSettings() {
-		int width = Toolkit.getDefaultToolkit().getScreenSize().width / 2;
+		int width = Toolkit.getDefaultToolkit().getScreenSize().width;
 		int height = Toolkit.getDefaultToolkit().getScreenSize().height;
-		//setIconImage(getToolkit().getImage("images/gameIcon.png"));
 		setLayout(new BorderLayout());
 		setTitle("Pacman - Online " + build);
-		setPreferredSize(new Dimension(width / 2, height / 2));
-		setSize(width / 2 + 200, height / 2);
-		setLocation(width / 2, height / 4);
+		setPreferredSize(new Dimension(Map.MAP_PIXEL_WIDTH, Map.MAP_PIXEL_HEIGHT));
+		setSize(Map.MAP_PIXEL_WIDTH, Map.MAP_PIXEL_HEIGHT);
+		setLocation(width / 3, height / 8);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
@@ -70,7 +77,9 @@ public class MainWindow extends JFrame{
 		return this.controller;
 	}
 	
-	public void paintMap(Cell[][] map) {
-		this.map.paintMap(map);
+	public void paintMap(Cell[][] map, int width, int height) {
+		this.map.paintMap(map, width, height);
+		this.repaint();
+		//this.revalidate();
 	}
 }

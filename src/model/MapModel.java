@@ -58,17 +58,17 @@ public class MapModel {
 	private void parseMap(int[][] input_map) {
 		map = new Cell[height][width];
 		Cell currentCell;
-		for (int i = 0; i < height; i++) {
-			for (int j = 0; j < width; j++) {
-				currentCell = new Cell(j, i, input_map[i][j]);
-				map[i][j] = currentCell;
-				if (input_map[i][j] == CellType.WALL.getValue())
+		for (int y = 0; y < height; y++) {
+			for (int x = 0; x < width; x++) {
+				currentCell = new Cell(y, x, input_map[y][x]);
+				map[y][x] = currentCell;
+				if (input_map[y][x] == CellType.WALL.getValue())
 					continue;
-				if (i > 0) {
-					findExitsFromCell(currentCell, i - 1, j);
+				if (y > 0) {
+					findExitsFromCell(currentCell, y - 1, x);
 				}
-				if (j > 0) {
-					findExitsFromCell(currentCell, i, j - 1);
+				if (x > 0) {
+					findExitsFromCell(currentCell, y, x - 1);
 				}
 			}
 		}
