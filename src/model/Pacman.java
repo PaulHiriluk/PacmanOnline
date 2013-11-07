@@ -4,8 +4,8 @@ import java.awt.Point;
 
 public class Pacman extends Unit {
 	private final MapModel	map;
-	private Direction	direction;
-	private int			apple_count;
+	private Direction		direction;
+	private int				apple_count;
 
 	public Pacman(final MapModel map, final Point coordinates, final UnitType type) {
 
@@ -14,14 +14,14 @@ public class Pacman extends Unit {
 		setHungry(false);
 	}
 
+	public void eatApple() {
+
+		apple_count++;
+	}
+
 	public int getApple() {
 
 		return apple_count;
-	}
-	
-	public void eatApple() {
-		
-		apple_count++;
 	}
 
 	protected void move(final Direction direction) {

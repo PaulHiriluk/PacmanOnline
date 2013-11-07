@@ -7,20 +7,19 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 
-import control.Controller;
-
 import model.Cell;
 import model.MenuModel;
+import control.Controller;
 
-public class MainWindow extends JFrame{
+public class MainWindow extends JFrame {
 
-	private static final long serialVersionUID = 3172688540921699213L;
-	private static final String build = "alpha 0.0000001 :)"; 
-	
-	private Controller controller;
-	private JMenuBar northMenuBar;
-	private ScoreBar southScoreBar;
-	private Map map;
+	private static final long	serialVersionUID	= 3172688540921699213L;
+	private static final String	build				= "alpha 0.0000001 :)";
+
+	private Controller			controller;
+	private JMenuBar			northMenuBar;
+	private ScoreBar			southScoreBar;
+	private Map					map;
 
 	public MainWindow() {
 		initDefaultSettings();
@@ -29,56 +28,56 @@ public class MainWindow extends JFrame{
 		showGameBars(true);
 	}
 
-	private void initMap() {
-		map = new Map();
-		add(map, BorderLayout.CENTER);
+	public Controller getController() {
+		return controller;
 	}
 
 	public Map getMap() {
 		return map;
 	}
 
-	public void setMap(Map map) {
-		this.map = map;
-	}
-
 	private void initDefaultSettings() {
-		int width = Toolkit.getDefaultToolkit().getScreenSize().width;
-		int height = Toolkit.getDefaultToolkit().getScreenSize().height;
+		final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
+		final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
 		setLayout(new BorderLayout());
-		setTitle("Pacman - Online " + build);
+		setTitle("Pacman - Online " + MainWindow.build);
 		setPreferredSize(new Dimension(Map.MAP_PIXEL_WIDTH, Map.MAP_PIXEL_HEIGHT));
 		setSize(Map.MAP_PIXEL_WIDTH, Map.MAP_PIXEL_HEIGHT);
 		setLocation(width / 3, height / 8);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	
+
+	private void initMap() {
+		map = new Map();
+		add(map, BorderLayout.CENTER);
+	}
+
 	private void initMenuBar() {
 		northMenuBar = new JMenuBar();
-		for(MenuTabItem tabItem: MenuTabItem.values()){
+		for (final MenuTabItem tabItem : MenuTabItem.values()) {
 			northMenuBar.add(MenuModel.createMenu(tabItem, this));
-		}	
+		}
 		setJMenuBar(northMenuBar);
-		
+
 		southScoreBar = new ScoreBar();
 		add(southScoreBar, BorderLayout.SOUTH);
 	}
 
-	public void showGameBars(Boolean showGameBars) {
-		this.northMenuBar.setVisible(showGameBars);
-		this.southScoreBar.setVisible(showGameBars);
-	}
-
-	public void setController(Controller controller) {
-		this.controller = controller;
-	}
-	
-	public Controller getController() {
-		return this.controller;
-	}
-	
-	public void paintMap(Cell[][] map, int width, int height) {
+	public void paintMap(final Cell[][] map, final int width, final int height) {
 		this.map.paintMap(map, width, height);
 		this.repaint();
+	}
+
+	public void setController(final Controller controller) {
+		this.controller = controller;
+	}
+
+	public void setMap(final Map map) {
+		this.map = map;
+	}
+
+	public void showGameBars(final Boolean showGameBars) {
+		northMenuBar.setVisible(showGameBars);
+		southScoreBar.setVisible(showGameBars);
 	}
 }

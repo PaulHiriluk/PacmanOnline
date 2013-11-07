@@ -7,14 +7,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class ScoreBar extends JPanel{
-	private static final long serialVersionUID = -5423518117416512133L;
-	
-	private JLabel gameStateLabel;
-	private JLabel scoreLabel;
-	private JLabel cherry;
-	private Boolean haveCherry;
-	
+public class ScoreBar extends JPanel {
+	private static final long	serialVersionUID	= -5423518117416512133L;
+
+	private JLabel				gameStateLabel;
+	private JLabel				scoreLabel;
+	private JLabel				cherry;
+	private Boolean				haveCherry;
+
 	public ScoreBar() {
 		initDefaultSettings();
 		initGameStateLabel();
@@ -26,25 +26,25 @@ public class ScoreBar extends JPanel{
 		setSize(new Dimension(200, 20));
 		setPreferredSize(new Dimension(200, 20));
 	}
-	
-	//Initials labels which contain game statistics
+
+	// Initials labels which contain game statistics
 	private void initGameStateLabel() {
-		//score label
+		// score label
 		scoreLabel = new JLabel("Score: ");
 		add(scoreLabel, BorderLayout.WEST);
-		
-		//game statistic: pacman life's, current level, score to next level 
+
+		// game statistic: pacman life's, current level, score to next level
 		gameStateLabel = new JLabel("Status: ");
 		add(gameStateLabel, BorderLayout.CENTER);
-		
-		//label show cherry status
+
+		// label show cherry status
 		cherry = new JLabel(new ImageIcon("src/images/cherry.jpg"));
 		add(cherry, BorderLayout.EAST);
 	}
-	
-	//print all game statistic
-	public void printGameState(int score, Boolean haveCherry){
-		this.scoreLabel.setText("Score: " + score);
-		this.cherry.setVisible(haveCherry);
+
+	// print all game statistic
+	public void printGameState(final int score, final Boolean haveCherry) {
+		scoreLabel.setText("Score: " + score);
+		cherry.setVisible(haveCherry);
 	}
 }

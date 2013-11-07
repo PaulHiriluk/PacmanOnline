@@ -4,15 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum MenuTabItem {
-	GAME("Игра", 
-			MenuBarItem.START, 
-			MenuBarItem.PAUSE, 
-			MenuBarItem.MAIN_MENU,
-			MenuBarItem.EXIT),
-	TOOLS("Инструменты",
-			MenuBarItem.SCREENSHOT),
-	INFO("Помощь", 
-			MenuBarItem.ABOUT);
+	GAME("Игра", MenuBarItem.START, MenuBarItem.PAUSE, MenuBarItem.MAIN_MENU,
+			MenuBarItem.EXIT), TOOLS("Инструменты", MenuBarItem.SCREENSHOT), INFO(
+			"Помощь", MenuBarItem.ABOUT);
 
 	private String				tabName;
 

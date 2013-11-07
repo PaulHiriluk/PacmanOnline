@@ -3,15 +3,15 @@ package model;
 import java.awt.Point;
 
 public class Unit {
-	private static final int CELL_SIZE = 16;
-	private Point			coordinates;
-	private Point			graphicalCoordinates;
-	private UnitType		type;
-	private boolean			hungry;
-	private Direction		direction;
-	private final boolean	life;
+	private static final int	CELL_SIZE	= 16;
+	private Point				coordinates;
+	private Point				graphicalCoordinates;
+	private UnitType			type;
+	private boolean				hungry;
+	private Direction			direction;
+	private final boolean		life;
 	private final MapModel		map;
-	private Cell prevStep;
+	private Cell				prevStep;
 
 	public Unit(final MapModel map, final Point coordinates, final UnitType type) {
 
@@ -22,32 +22,9 @@ public class Unit {
 		direction = Direction.SOUTH;
 		life = true;
 	}
-	
-	public Cell getPrevStep() {
-		return prevStep;
-	}
-	
 
 	public Point getCoordinate() {
 		return coordinates;
-	}
-	
-	public Point getGraphicalCoordinates() {
-		return graphicalCoordinates;
-	}
-	
-	public void setGraphicalCoordinates(Point graphicalCoordinates) {
-		this.graphicalCoordinates = graphicalCoordinates;
-		coordinates.x = graphicalCoordinates.x / CELL_SIZE;
-		coordinates.y = graphicalCoordinates.y / CELL_SIZE;
-	}
-	
-	public int getX() {
-		return coordinates.x;
-	}
-	
-	public int getY() {
-		return coordinates.y;
 	}
 
 	public Direction getDirection() {
@@ -55,9 +32,25 @@ public class Unit {
 		return direction;
 	}
 
+	public Point getGraphicalCoordinates() {
+		return graphicalCoordinates;
+	}
+
+	public Cell getPrevStep() {
+		return prevStep;
+	}
+
 	public UnitType getType() {
 
 		return type;
+	}
+
+	public int getX() {
+		return coordinates.x;
+	}
+
+	public int getY() {
+		return coordinates.y;
 	}
 
 	public boolean isHungry() {
@@ -83,6 +76,12 @@ public class Unit {
 	public void setDirection(final Direction direction) {
 
 		this.direction = direction;
+	}
+
+	public void setGraphicalCoordinates(final Point graphicalCoordinates) {
+		this.graphicalCoordinates = graphicalCoordinates;
+		coordinates.x = graphicalCoordinates.x / Unit.CELL_SIZE;
+		coordinates.y = graphicalCoordinates.y / Unit.CELL_SIZE;
 	}
 
 	public void setHungry(final boolean hungry) {
